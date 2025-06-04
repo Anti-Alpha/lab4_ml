@@ -5,8 +5,8 @@ stages:
     deps:
     - path: src/download.py
       hash: md5
-      md5: 842706d39c617e987a69d2c5795ae1cc
-      size: 3124
+      md5: 7fd9c66e84e9c18dfc3f0e883bad9129
+      size: 1604
     params:
       params.yaml:
         download:
@@ -28,8 +28,8 @@ stages:
       nfiles: 8
     - path: src/ingestion.py
       hash: md5
-      md5: b958c2073816b6c377a8fa65c8637161
-      size: 6820
+      md5: 60142c5347571dcaba3a08f8ac9946b8
+      size: 3171
     params:
       params.yaml:
         download.cifar_dir: ./data/raw
@@ -48,43 +48,43 @@ stages:
     outs:
     - path: ./data/split/test.pkl
       hash: md5
-      md5: 67087eb10cbac4a5a07ecddc3d55ae7e
-      size: 38542316
+      md5: b867e80255dfecfc21f2f649240e564b
+      size: 38542313
     - path: ./data/split/train.pkl
       hash: md5
-      md5: c43f9b68d3995fcfcdb11c247c347b6a
-      size: 92701869
+      md5: ad3612e91bb9b450ac3ddd5b7106c124
+      size: 92701881
     - path: ./data/split/val.pkl
       hash: md5
-      md5: fa102772bcce7e3b8ddcfb0c55f70036
-      size: 23152570
+      md5: 6d662929f3e045635d66f201d6be2fcb
+      size: 23152563
   train:
     cmd: python src/train_model.py
     deps:
     - path: ./data/split/train.pkl
       hash: md5
-      md5: c43f9b68d3995fcfcdb11c247c347b6a
-      size: 92701869
+      md5: ad3612e91bb9b450ac3ddd5b7106c124
+      size: 92701881
     - path: ./data/split/val.pkl
       hash: md5
-      md5: fa102772bcce7e3b8ddcfb0c55f70036
-      size: 23152570
+      md5: 6d662929f3e045635d66f201d6be2fcb
+      size: 23152563
     - path: src/metrics.py
       hash: md5
       md5: b9cabcec9f372ef481ee913798bd4f1d
       size: 2244
     - path: src/model.py
       hash: md5
-      md5: 5cd8834b9a2ed684f31e1435ea12864d
-      size: 2037
+      md5: 9c14dd7b6e4d406842a1c6c619cbd579
+      size: 1034
     - path: src/train_model.py
       hash: md5
-      md5: b866d0dc556493822bcec5a40654a0e4
-      size: 5039
+      md5: 2b6b00d6265fe688cc2d0a2f6582948e
+      size: 3556
     params:
       params.yaml:
         mlflow:
-          tracking_uri: http://localhost:5000
+          tracking_uri: http://127.0.0.1:5000
           run_id_path: ./data/mlflow/run_id.txt
           best_model_artifact_name: best_model
           experiment_name: TestEpochs
@@ -92,17 +92,17 @@ stages:
         prepare.val_split_path: ./data/split/val.pkl
         train:
           lr: 0.001
-          num_epochs: 6
+          num_epochs: 2
           model_save_path: ./data/models/best_model.pth
     outs:
     - path: ./data/mlflow/run_id.txt
       hash: md5
-      md5: fddbff3260c7b2615a5dfe05fa6cecbb
+      md5: ed255511bc6512c4c781b4be6907492b
       size: 32
     - path: ./data/models/best_model.pth
       hash: md5
-      md5: b2c4ed1616d2802cb101785a322bf23c
-      size: 81681996
+      md5: 11e4c0adbbc531bdd3965ce1650e02bc
+      size: 81660556
   test:
     cmd: python src/test_model.py
     deps:

@@ -34,7 +34,9 @@ def get_mlflow_run_id(config):
     return None
 
 def get_mlflow_best_model(run_id, config):
+    print("runs:/{run_id}/{config['mlflow']['best_model_artifact_name']}")
     uri = f"runs:/{run_id}/{config['mlflow']['best_model_artifact_name']}"
+    print(uri)
     return load_model(uri)
 
 def main():
@@ -45,7 +47,9 @@ def main():
     if not run_id:
         return
 
-    mlflow.set_tracking_uri(config["mlflow"]["tracking_uri"])
+    mlflow.set_tracking_uri("http://127.0.0.1:5000")
+    # print("Experiments:", mlflow.list_experiments())
+    # mlflow.set_experiment("default")
     mlflow.set_experiment(config["mlflow"].get("experiment_name"))
 
     with mlflow.start_run(run_id=run_id):

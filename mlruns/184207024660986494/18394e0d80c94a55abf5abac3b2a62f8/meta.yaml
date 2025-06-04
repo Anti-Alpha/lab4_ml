@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/184207024660986494/18394e0d80c94a55abf5abac3b2a62f8/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '184207024660986494'
+lifecycle_stage: active
+run_id: 18394e0d80c94a55abf5abac3b2a62f8
+run_name: LR=0.001_Epochs=2
+run_uuid: 18394e0d80c94a55abf5abac3b2a62f8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748845998693
+status: 1
+tags: []
+user_id: amanell

@@ -17,8 +17,10 @@ def train_model(model, train_loader, val_loader, loss_fn, optimizer, num_epochs,
     best_loss = float("inf")
 
     for epoch in range(num_epochs):
+        logging.info(f"Starting epoch {epoch+1}")
         model.train()
         for x, y in train_loader:
+            logging.info(f"Batch ")
             x, y = x.to(device), y.to(device)
             optimizer.zero_grad()
             loss = loss_fn(model(x), y)

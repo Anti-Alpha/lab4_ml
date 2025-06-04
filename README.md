@@ -53,3 +53,9 @@ opt = torch.optim.SGD(model.parameters(), lr=cfg["train"]["lr"])
 train.train_model(model, train_loader, val_loader, loss, opt, cfg["train"]["num_epochs"], device)
 test.test_model(model, test_loader, loss, device)
 ```
+
+![Screenshot](Screenshot%202025-06-04%20at%2023.43.15.png)
+
+![Screenshot](Screenshot%202025-06-04%20at%2023.43.27.png)
+
+![Screenshot](Screenshot%202025-06-04%20at%2023.43.33.png)

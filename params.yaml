@@ -22,7 +22,7 @@ loader:
   num_workers: 2
 
 mlflow:
-  tracking_uri: "http://localhost:5000"
+  tracking_uri: "http://127.0.0.1:5000"
   run_id_path: "./data/mlflow/run_id.txt"
   best_model_artifact_name: "best_model"
   experiment_name: "TestEpochs"
